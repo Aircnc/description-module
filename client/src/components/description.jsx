@@ -1,16 +1,29 @@
 import React from 'react';
+import $ from 'jquery';
+
+import Header from './header.jsx';
+import Short from './short.jsx';
+import Long from './long.jsx';
+import Host from './host.jsx';
+import Amenities from './amenities.jsx';
 
 class Description extends React.Component {
   constructor(props) {
   	super(props);
 
   	this.state = {
-
+      header: "",
+      short: "",
+      long: "",
+      host: "",
+      amenities: ""
   	}
   }
 
   componentDidMount() {
-
+    $.get(`/:id/description`, (data) => {
+      console.log(data);
+    })
   }
 
   render() {

@@ -7,9 +7,9 @@ var dataGenerator = (num) => {
     reviews: []
   };
 
-  for (var i = 0; i < num; i++) {
+  for (var i = 1; i <= num; i++) {
     var property = {};
-    property.id = faker.random.uuid();
+    // property.id = faker.random.uuid();
     property.title = faker.lorem.words();
     property.description = {};
     property.description.short = {
@@ -55,22 +55,23 @@ var dataGenerator = (num) => {
     property.reviewIds = [];
 
     var owner = {};
-    owner.id = faker.random.uuid();
+    //owner.id = i;
     owner.name = faker.name.firstName() + ' ' + faker.name.lastName();
     owner.superStatus = faker.random.boolean();
     owner.avatar = faker.image.avatar();
     owner.contact = {};
     owner.contact.email = faker.internet.email();
     owner.contact.phone = faker.phone.phoneNumber();
+    owner.propertyId = i;
 
-    property.owner = owner.id;
+    property.ownersId = i;
 
     var rN = faker.random.number({min: 3, max: 10});
 
     var reviewCollection = [];
-    for (var j = 0; j < rN; j++) {
+    for (var j = 1; j <= rN; j++) {
       var review = {};
-      review.id = faker.random.uuid();
+      review.id = (i*10) + j;
       review.created = faker.date.month() + ' ' + faker.random.number({min: 2012, max: 2018});
       review.ratings = {};
       review.ratings.accuracy = Number(faker.finance.amount(0, 5, 2));
@@ -79,7 +80,7 @@ var dataGenerator = (num) => {
       review.ratings.location = Number(faker.finance.amount(0, 5, 2));
       review.ratings.checkin = Number(faker.finance.amount(0, 5, 2));
       review.ratings.value = Number(faker.finance.amount(0, 5, 2));
-      review.property = property.id;
+      review.propertyId = i;
 
       //reviewCollection.push(review);
       results.reviews.push(review);

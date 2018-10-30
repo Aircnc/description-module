@@ -21,8 +21,16 @@ class Description extends React.Component {
   }
 
   componentDidMount() {
-    $.get(`/:id/description`, (data) => {
+    var id = 2;
+    $.get(`/listings/${id}/description`, (data) => {
       console.log(data);
+      this.setState({
+        header: {title: data.title, city: data.location.city, avatar: data.owner.avatar, name: data.owner.name},
+        short: {rooms: data.description.short, reviews: data.reviews},
+        long: data.description.long,
+        host: data.owner,
+        amenities: data.description.amenities
+      })
     })
   }
 
@@ -30,7 +38,7 @@ class Description extends React.Component {
   	return (
       <div className="description-container">
         <div className="header-container">
-          <Header />
+          <Header data={this.state.header}/>
         </div>
         <div className="short-desc-container">
           <Short />

@@ -8,14 +8,13 @@ var app = express();
 var port = 3002;
 
 app.use(bodyParser());
-app.use("/:id/description", express.static(path.join(__dirname, '../public')));
+app.use('/listings/:id', express.static(path.join(__dirname, '../public')));
 
-app.get("/:id/description", (req, res) => {
-  console.log(req.params);
+app.get('/listings/:id/description', (req, res) => {
   findOne(req.params.id, (data) => {
   	res.status(200).send(data);
-  })
-})
+  });
+});
 
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);

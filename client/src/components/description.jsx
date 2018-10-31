@@ -9,15 +9,15 @@ import Amenities from './amenities.jsx';
 
 class Description extends React.Component {
   constructor(props) {
-  	super(props);
+    super(props);
 
-  	this.state = {
-      header: "",
-      short: "",
-      long: "",
-      host: "",
-      amenities: ""
-  	}
+    this.state = {
+      header: '',
+      short: '',
+      long: '',
+      host: '',
+      amenities: ''
+    };
   }
 
   componentDidMount() {
@@ -25,17 +25,17 @@ class Description extends React.Component {
     $.get(`/listings/${id}/description`, (data) => {
       console.log(data);
       this.setState({
-        header: {title: data.title, city: data.location.city, avatar: data.owner.avatar, name: data.owner.name},
+        header: {title: data.title, city: data.location.city, avatar: data.owner.avatar, name: data.owner.name.split(' ')[0], superStatus: data.owner.superStatus},
         short: {rooms: data.description.short, reviews: data.reviews},
         long: data.description.long,
         host: data.owner,
         amenities: data.description.amenities
-      })
-    })
+      });
+    });
   }
 
   render() {
-  	return (
+    return (
       <div className="description-container">
         <div className="header-container">
           <Header data={this.state.header}/>
@@ -53,7 +53,7 @@ class Description extends React.Component {
           <Amenities />
         </div>
       </div>
-  	)
+    );
   }
 }
 

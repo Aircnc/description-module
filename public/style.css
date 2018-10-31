@@ -1,7 +1,8 @@
 .description-container {
   margin-top: 24px;
+  margin-left: 190px;
   height: 1000px;
-  width: 1000px;
+  width: 611px;
   background-color: yellow;
 }
 
@@ -18,6 +19,7 @@
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-weight: 800;
   display: inline;
+  text-align: center;
 }
 
 .summary-container {
@@ -25,7 +27,24 @@
   padding-right: 8px;
   position: relative;
   background-color: green;
-  display: list-item;
+}
+
+.info-container {
+  display: inline; 
+  float: left;
+}
+
+.host-container {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  position: relative;
+  float: right;
+  flex-direction: column;
+}
+
+.avatar-container {
+  display: block;
+  position: relative;
 }
 
 .title {
@@ -39,4 +58,27 @@
 
 .city {
   font-size: 16px;
+}
+
+.avatar {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  z-index: 1;
+  position: relative;
+}
+
+.badge {
+  height: 32px;
+  width: 32px;
+  z-index: 2;
+  position: absolute;
+  top: 35px;
+  left: 40px;
+}
+
+.host-name {
+  font-size: 14px;
+  color: #767676;
+  text-align: center;
 }

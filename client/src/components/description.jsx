@@ -14,6 +14,14 @@ height: 1000px;
 width: 611px;
 `;
 
+var HeaderContainer = styled.div`
+
+`;
+
+var LongDescContainer = styled.div`
+display: inline-block;
+`;
+
 class Description extends React.Component {
   constructor(props) {
     super(props);
@@ -44,15 +52,15 @@ class Description extends React.Component {
   render() {
     return (
       <DescriptionContainer>
-        <div className="header-container">
+        <HeaderContainer>
           <Header data={this.state.header}/>
-        </div>
+        </HeaderContainer>
         <div className="short-desc-container">
           <Short />
         </div>
-        <div className="long-desc-container">
+        <LongDescContainer>
           <Long data={this.state.long}/>
-        </div>
+        </LongDescContainer>
         <div className="amenities-container">
           <Amenities />
         </div>

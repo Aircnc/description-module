@@ -1,5 +1,50 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
+
 import ParagraphList from './paragraphList.jsx';
+
+var Text = styled.div`
+word-wrap: break-word;
+font-size: 16px;
+line-height: 22px;
+font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+color: #484848;
+display: inline;
+margin-bottom: 15px;
+`;
+
+var ToggleContainer = styled.div`
+margin-top: 24px;
+margin-bottom: 24px;
+font-weight: 600;
+word-wrap: break-word;
+font-size: 16px;
+color: #008489;
+font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+display: flex;
+`;
+
+var Toggle = styled.div`
+:hover {
+  text-decoration: underline;
+}
+`;
+
+var Caret = styled.img`
+height: 15px;
+width: 15px;
+margin-left: 5px;
+
+${p => !p.isExpanded && css`transform: scale(-1, -1)`}
+`;
+
+var Host = styled.div`
+font-weight: 600;
+word-wrap: break-word;
+font-size: 16px;
+color: #008489;
+font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+`;
 
 class Long extends React.Component {
   constructor(props) {
@@ -7,28 +52,28 @@ class Long extends React.Component {
 
     this.state = {
       isExpanded: false,
-      desc: ''
+      buttonText: 'Read more about the space'
     };
     this.handleToggle = this.handleToggle.bind(this);
   }
 
   handleToggle() {
+  	var buttonText = this.state.isExpanded ? 'Read more about the space' : 'Hide';
     this.setState({
-      isExpanded: !this.state.isExpanded
+      isExpanded: !this.state.isExpanded,
+      buttonText: buttonText
     });
   }
 
   render() {
-    var buttonText = !this.state.isExpanded ? 'Read more about the space' : 'Hide';
-    var style = {transform: !this.state.isExpanded ? 'scale(-1, -1)' : ''};
     return (
       <div>
-        {!this.state.isExpanded ? <div className='text'>{this.props.data.split('\n')[0]}</div> : <ParagraphList className='text' info={this.props.data}/>}
-        <div className='toggle-container' onClick={this.handleToggle}>
-          <div className='toggle'>{buttonText}</div>
-          <img className='caret' style={style} src='https://static.thenounproject.com/png/427199-200.png'/>
-        </div>
-        <div className='host'>Contact host</div>
+        {!this.state.isExpanded ? <Text>{this.props.data.split('\n')[0]}</Text> : <ParagraphList info={this.props.data}/>}
+        <ToggleContainer onClick={this.handleToggle}>
+          <Toggle>{this.state.buttonText}</Toggle>
+          <Caret isExpanded={this.state.isExpanded} src='https://static.thenounproject.com/png/427199-200.png'/>
+        </ToggleContainer>
+        <Host>Contact host</Host>
       </div>
     );
   }

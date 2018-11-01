@@ -1,11 +1,20 @@
 import React from 'react';
 import $ from 'jquery';
+import styled from 'styled-components';
 
 import Header from './header.jsx';
 import Short from './short.jsx';
 import Long from './long.jsx';
 import Host from './host.jsx';
 import Amenities from './amenities.jsx';
+
+var DescriptionContainer = styled.div`
+margin-top: 24px;
+margin-left: 190px;
+height: 1000px;
+width: 611px;
+background-color: yellow;
+`;
 
 class Description extends React.Component {
   constructor(props) {
@@ -36,7 +45,7 @@ class Description extends React.Component {
 
   render() {
     return (
-      <div className="description-container">
+      <DescriptionContainer>
         <div className="header-container">
           <Header data={this.state.header}/>
         </div>
@@ -52,7 +61,7 @@ class Description extends React.Component {
         <div className="amenities-container">
           <Amenities />
         </div>
-      </div>
+      </DescriptionContainer>
     );
   }
 }

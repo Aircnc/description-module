@@ -1,5 +1,4 @@
 .description-container {
-  margin-top: 24px;
   margin-left: 190px;
   height: 1000px;
   width: 611px;
@@ -7,8 +6,19 @@
 }
 
 .header-container {
-  background-color: blue;
+  margin-top: 24px;
 }
+
+.short-desc-container {
+  margin-top: 16px;
+  display: inline;
+}
+
+.long-desc-container {
+  margin-top: 16px;
+  display: inline-flex;
+}
+
 
 .synopsis {
   color: #231341;
@@ -81,4 +91,51 @@
   font-size: 14px;
   color: #767676;
   text-align: center;
+}
+
+
+.paragraph {
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: normal;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  color: #484848;
+}
+
+.text {
+  word-wrap: break-word;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: normal;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  color: #484848;
+}
+
+.toggle-container {
+  color: #008489;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  display: inline-flex;
+}
+
+.toggle-container:hover {
+  text-decoration: underline;
+}
+
+.toggle {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.caret {
+  height: 16px;
+  width: 16px;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+.host {
+  color: #008489;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
 }

@@ -12,7 +12,6 @@ margin-top: 24px;
 margin-left: 190px;
 height: 1000px;
 width: 611px;
-background-color: yellow;
 `;
 
 class Description extends React.Component {

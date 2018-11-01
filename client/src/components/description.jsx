@@ -51,7 +51,7 @@ class Description extends React.Component {
           <Short />
         </div>
         <div className="long-desc-container">
-          <Long />
+          <Long data={this.state.long}/>
         </div>
         <div className="amenities-container">
           <Amenities />

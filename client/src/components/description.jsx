@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Header from './header.jsx';
 import Short from './short.jsx';
 import Long from './long.jsx';
-import Host from './host.jsx';
 import Amenities from './amenities.jsx';
 
 var DescriptionContainer = styled.div`
@@ -13,7 +12,6 @@ margin-top: 24px;
 margin-left: 190px;
 height: 1000px;
 width: 611px;
-background-color: yellow;
 `;
 
 class Description extends React.Component {
@@ -54,9 +52,6 @@ class Description extends React.Component {
         </div>
         <div className="long-desc-container">
           <Long />
-        </div>
-        <div className="host-container">
-          <Host />
         </div>
         <div className="amenities-container">
           <Amenities />

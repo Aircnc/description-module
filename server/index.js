@@ -12,7 +12,35 @@ app.use('/listings/:id', express.static(path.join(__dirname, '../public')));
 
 app.get('/listings/:id/description', (req, res) => {
   findOne(req.params.id, (data) => {
-  	res.status(200).send(data);
+    var amenities = data.amenities;
+    var categories = [];
+    var isAllAvailable = [];
+    var isLeftAvailable = [];
+    var isRightAvailable = [];
+    var notAvailable = [];
+    var availableCount = 0;
+    for (var key in amenities) {
+      var sub = [];
+      categories.push(key);
+      for (var i = 0; i < amenities[key].length; i++) {
+        for (var k in amenities[key][i]) {
+          if (amenities[key][i][k]) {
+            availableCount++;
+            sub.push(k);
+            if (isLeftAvailable.length < 3) {
+              isLeftAvailable.push(k);
+            } else if (isRightAvailable.length < 3) {
+              isRightAvailable.push(k);
+            }
+          } else {
+            notAvailable.push(k);
+          }
+        }
+      }
+      isAllAvailable.push(sub);
+    }
+    data.amenities = {amenities: amenities, categories: categories, isLeft: isLeftAvailable, isRight: isRightAvailable, isAll: isAllAvailable, count: availableCount, not: notAvailable};
+    res.status(200).send(data);
   });
 });
 

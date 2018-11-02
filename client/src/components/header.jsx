@@ -51,6 +51,7 @@ position: relative;
 `;
 
 var Avatar = styled.img`
+cursor: pointer;
 height: 64px;
 width: 64px;
 border-radius: 50%;

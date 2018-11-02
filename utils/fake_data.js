@@ -71,7 +71,7 @@ var dataGenerator = (num) => {
     var reviewCollection = [];
     for (var j = 1; j <= rN; j++) {
       var review = {};
-      review.id = (i*10) + j;
+      review.id = (i * 10) + j;
       review.created = faker.date.month() + ' ' + faker.random.number({min: 2012, max: 2018});
       review.ratings = {};
       review.ratings.accuracy = Number(faker.finance.amount(0, 5, 2));

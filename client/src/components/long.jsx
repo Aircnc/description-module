@@ -14,6 +14,7 @@ margin-bottom: 15px;
 `;
 
 var ToggleContainer = styled.div`
+cursor: pointer;
 margin-top: 24px;
 margin-bottom: 24px;
 font-weight: 600;
@@ -39,6 +40,7 @@ ${p => !p.isExpanded && css`transform: scale(-1, -1)`}
 `;
 
 var Host = styled.div`
+cursor: pointer;
 font-weight: 600;
 word-wrap: break-word;
 font-size: 16px;
@@ -58,7 +60,7 @@ class Long extends React.Component {
   }
 
   handleToggle() {
-  	var buttonText = this.state.isExpanded ? 'Read more about the space' : 'Hide';
+    var buttonText = this.state.isExpanded ? 'Read more about the space' : 'Hide';
     this.setState({
       isExpanded: !this.state.isExpanded,
       buttonText: buttonText

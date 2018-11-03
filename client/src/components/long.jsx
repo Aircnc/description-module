@@ -10,7 +10,7 @@ font-size: 16px;
 line-height: 22px;
 font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
 color: #484848;
-display: inline;
+
 margin-bottom: 15px;
 `;
 

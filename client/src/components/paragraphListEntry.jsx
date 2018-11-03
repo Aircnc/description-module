@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 var Paragraph = styled.p`
+margin-top: 0px;
 word-wrap: break-word;
 font-size: 16px;
 line-height: 22px;

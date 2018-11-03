@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import AmenityListModal from './amenityListModal.jsx';
 
@@ -23,5 +24,9 @@ var CategoryList = ({ categories, all }) => (
   </div>
 );
 
+Category.propTypes = {
+  categories: PropTypes.array,
+  all: PropTypes.array
+};
 
 export default CategoryList;

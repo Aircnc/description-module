@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AmenityListEntryModal should render correctly 1`] = `
+<div>
+  <styled.div
+    notAvailable="mockNotAvailable"
+  >
+    mockAmenity
+  </styled.div>
+  <styled.div
+    notAvailable="mockNotAvailable"
+  >
+    A description for this item is not available at this time
+  </styled.div>
+  <styled.div
+    isLast="mockIsLast"
+  />
+</div>
+`;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 var Amenity = styled.div`
 word-wrap: break-word;
@@ -41,5 +42,11 @@ var AmenityListEntryModal = ({ amenity, isLast, notAvailable }) => (
     <Border isLast={isLast}></Border>
   </div>
 );
+
+AmenityListEntryModal.propTypes = {
+  amenity: PropTypes.string,
+  isLast: PropTypes.bool,
+  notAvailable: PropTypes.bool
+};
 
 export default AmenityListEntryModal;

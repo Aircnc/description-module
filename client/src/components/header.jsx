@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
+import PropTypes from 'prop-types';
 
 var Synopsis = styled.div`
 color: #231341;
@@ -96,6 +97,10 @@ var Header = ({ data }) => {
       </SummaryContainer>
     </div>
   );
+};
+
+Header.propTypes = {
+  data: PropTypes.object
 };
 
 export default Header;

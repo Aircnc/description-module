@@ -1,5 +1,6 @@
 import React from 'react';
 import ParagraphListEntry from './paragraphListEntry.jsx';
+import PropTypes from 'prop-types';
 
 var ParagraphList = ({ info }) => (
   <div>
@@ -8,5 +9,9 @@ var ParagraphList = ({ info }) => (
     ))}
   </div>
 );
+
+ParagraphList.propTypes = {
+  info: PropTypes.string
+};
 
 export default ParagraphList;

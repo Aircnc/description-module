@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 var ShortContainer = styled.div`
 box-sizing: border-box;
@@ -29,5 +30,9 @@ var Short = (props) => (
     <EntryContainer></EntryContainer>
   </ShortContainer>
 );
+
+Short.propTypes = {
+  props: PropTypes.object
+};
 
 export default Short;

@@ -12,4 +12,12 @@ describe('<Description />', () => {
 
     expect(container.length).toBe(1);
   });
+
+  it('should handle state changes', () => {
+    var wrapper = shallow(<Description />);
+  
+    expect(wrapper.state().show).toEqual(false);
+    wrapper.instance().showModal();
+    expect(wrapper.state().show).toEqual(true);
+  });
 });

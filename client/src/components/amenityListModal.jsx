@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import AmenityListEntryModal from './amenityListEntryModal.jsx';
 
@@ -11,14 +12,17 @@ var AmenityListModal = ({ all, notAvailable }) => (
   <ListContainer>
     {all.map((amenity, i) => {
       var isLast = false;
-      if (i === all.length - 1) {
-        isLast = true;
-      }
+      i === all.length - 1 ? isLast = true : isLast = false;
       return (
         <AmenityListEntryModal key={i} amenity={amenity} isLast={isLast} notAvailable={notAvailable}/>
       );
     })}
   </ListContainer>
 );
+
+AmenityListModal.propTypes = {
+  all: PropTypes.array,
+  notAvailable: PropTypes.bool
+};
 
 export default AmenityListModal;

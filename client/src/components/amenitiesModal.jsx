@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 import CategoryList from './categoryList.jsx';
 import AmenityListModal from './amenityListModal.jsx';
@@ -48,16 +49,6 @@ font-weight: 700;
 margin-bottom: 16px;
 `;
 
-// var Category = styled.div`
-// margin-top: 32px;
-// margin-bottom: 16px;
-// font-size: 18px;
-// line-height: 26px;
-// font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-// color: rgb(72, 72, 72);
-// font-weight: 700;
-// `;
-
 var AmenityList = styled.div`
 
 `;
@@ -98,5 +89,11 @@ var AmenitiesModal = ({ showModal, show, data }) => (
     </Container>
   </Modal>
 );
+
+AmenitiesModal.propTypes = {
+  showModal: PropTypes.func,
+  show: PropTypes.bool,
+  data: PropTypes.object
+};
 
 export default AmenitiesModal;

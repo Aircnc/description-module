@@ -54,8 +54,8 @@ class Description extends React.Component {
     super(props);
 
     this.state = {
-      header: '',
-      short: '',
+      header: {},
+      short: {},
       long: '',
       host: '',
       amenities: {amenities: {}, categories: [], isLeft: [], isRight: [], isAll: [], count: 0, not: []},

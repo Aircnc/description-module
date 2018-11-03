@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 import ParagraphList from './paragraphList.jsx';
 
@@ -80,5 +81,9 @@ class Long extends React.Component {
     );
   }
 }
+
+Long.propTypes = {
+  props: PropTypes.string
+};
 
 export default Long;

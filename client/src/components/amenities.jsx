@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import AmenitiesList from './amenitiesList.jsx';
 
@@ -77,5 +78,10 @@ var Amenities = ({ data, showModal }) => (
     <Toggle onClick={showModal}>Show all {data.count} amenities</Toggle>
   </div>
 );
+
+Amenities.propTypes = {
+  data: PropTypes.object,
+  showModal: PropTypes.func
+};
 
 export default Amenities;

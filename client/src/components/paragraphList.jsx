@@ -1,13 +1,18 @@
 import React from 'react';
 import ParagraphListEntry from './paragraphListEntry.jsx';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
+var Container = styled.div`
+
+`;
+
 var ParagraphList = ({ info }) => (
-  <div>
+  <Container>
     {info.split('\n').map((paragraph, i) => (
       <ParagraphListEntry key={i} paragraph={paragraph} />
     ))}
-  </div>
+  </Container>
 );
 
 ParagraphList.propTypes = {

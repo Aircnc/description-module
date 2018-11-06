@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 var findOne = require('../database/router.js');
 
@@ -10,7 +11,7 @@ var port = 3002;
 app.use(bodyParser());
 app.use('/listings/:id', express.static(path.join(__dirname, '../public')));
 
-app.get('/listings/:id/description', (req, res) => {
+app.get('/listings/:id/description', cors(), (req, res) => {
   findOne(req.params.id, (data) => {
     var amenities = data.amenities;
     var categories = [];

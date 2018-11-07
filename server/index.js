@@ -9,6 +9,7 @@ var app = express();
 var port = 3002;
 
 app.use(bodyParser());
+app.use(express.static(path.join(__dirname, '../public/dist')));
 app.use('/listings/:id', express.static(path.join(__dirname, '../public')));
 
 app.get('/listings/:id/description', cors(), (req, res) => {

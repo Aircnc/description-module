@@ -13,10 +13,9 @@ var All = styled.div`
 `;
 
 var DescriptionContainer = styled.div`
-margin-top: 24px;
-margin-left: 190px;
-height: 1000px;
-width: 611px;
+
+  height: auto;
+  width: 611px;
 ${p => p.show && css`
   overflow: hidden;
   height: auto;

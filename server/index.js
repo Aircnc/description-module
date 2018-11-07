@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+const cors = require('cors');
 var bodyParser = require('body-parser');
 
 var findOne = require('../database/router.js');
@@ -7,10 +8,11 @@ var findOne = require('../database/router.js');
 var app = express();
 var port = 3002;
 
-app.use(bodyParser());
-app.use('/listings/:id', express.static(path.join(__dirname, '../public')));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../public/dist')));
 
-app.get('/listings/:id/description', (req, res) => {
+app.get('/listings/:id/description', cors(), (req, res) => {
   findOne(req.params.id, (data) => {
     var amenities = data.amenities;
     var categories = [];

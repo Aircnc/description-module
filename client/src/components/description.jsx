@@ -14,8 +14,8 @@ var All = styled.div`
 
 var DescriptionContainer = styled.div`
 margin-top: 24px;
-margin-left: 190px;
-height: 1000px;
+padding: 10px;
+height: auto;
 width: 611px;
 ${p => p.show && css`
   overflow: hidden;
@@ -67,7 +67,8 @@ class Description extends React.Component {
 
   componentDidMount() {
     var id = window.location.href.slice(31, -1);
-    $.get(`/listings/${id}/description`, (data) => {
+    $.get(`http://localhost:3002/listings/${id}/description`, (data) => {
+      console.log(data);
       this.setState({
         header: {title: data.title, city: data.location.city, avatar: data.owner.avatar, name: data.owner.name.split(' ')[0], superStatus: data.owner.superStatus},
         short: {rooms: data.description.short, reviews: data.reviews},

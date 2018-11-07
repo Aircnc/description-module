@@ -6,5 +6,7 @@ var results = fakeData(100);
 Properties.bulkCreate(results.properties)
   .then(() => { return Reviews.bulkCreate(results.reviews); })
   .then(() => { return Owners.bulkCreate(results.owners); })
-  .catch(err => { console.log(err); })
+  .catch(err => {
+    console.log(err); 
+  })
   .then(() => { db.close(); });

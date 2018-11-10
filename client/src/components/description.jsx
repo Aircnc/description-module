@@ -66,8 +66,10 @@ class Description extends React.Component {
   }
 
   componentDidMount() {
-    var id = window.location.href.slice(31, -1);
-    $.get(`http://localhost:3002/listings/${id}/description`, (data) => {
+    var url = window.location.href;
+    var listingId = Number(url.split('/')[url.split('/').length - 2]);
+    console.log(listingId, 'listing Id');
+    $.get(`/listings/${listingId}/description`, (data) => {
       this.setState({
         header: {title: data.title, city: data.location.city, avatar: data.owner.avatar, name: data.owner.name.split(' ')[0], superStatus: data.owner.superStatus},
         short: {rooms: data.description.short, reviews: data.reviews},

@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import axios from 'axios';
 import styled, { css } from 'styled-components';
 
 import Header from './header.jsx';
@@ -12,11 +13,13 @@ var All = styled.div`
 
 `;
 
+//was in below div:
+// margin-top: 24px;
+// margin-left: 190px;
+// height: 1000px;
+// width: 611px;
 var DescriptionContainer = styled.div`
-margin-top: 24px;
-margin-left: 190px;
-height: 1000px;
-width: 611px;
+
 ${p => p.show && css`
   overflow: hidden;
   height: auto;
@@ -69,7 +72,9 @@ class Description extends React.Component {
     var url = window.location.href;
     var listingId = Number(url.split('/')[url.split('/').length - 2]);
     console.log(listingId, 'listing Id');
-    $.get(`/listings/${listingId}/description`, (data) => {
+    axios.get(`/listings/${listingId}/description`).then((data) => {
+      console.log(data);
+      data = data.data;
       this.setState({
         header: {title: data.title, city: data.location.city, avatar: data.owner.avatar, name: data.owner.name.split(' ')[0], superStatus: data.owner.superStatus},
         short: {rooms: data.description.short, reviews: data.reviews},

@@ -6,10 +6,12 @@ var cors = require('cors');
 var findOne = require('../database/router.js');
 
 var app = express();
+var host = '0.0.0.0';
 var port = 3002;
 
 app.use(bodyParser());
 app.use('/listings/:id', express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public/dist')));
 
 app.get('/listings/:id/description', cors(), (req, res) => {
   findOne(req.params.id, (data) => {
@@ -41,10 +43,9 @@ app.get('/listings/:id/description', cors(), (req, res) => {
       isAllAvailable.push(sub);
     }
     data.amenities = {amenities: amenities, categories: categories, isLeft: isLeftAvailable, isRight: isRightAvailable, isAll: isAllAvailable, count: availableCount, not: notAvailable};
-    res.status(200).send(data);
+    console.log(data);
+    res.send(data);
   });
 });
 
-app.listen(port, () => {
-  console.log(`server running at: http://localhost:${port}`);
-});
+app.listen(port);
